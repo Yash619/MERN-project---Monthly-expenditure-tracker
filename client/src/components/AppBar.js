@@ -26,7 +26,7 @@ export default function ButtonAppBar() {
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <Link className="text-white" to="/">
-              Expensor
+              Monthly Expenditure Tracker
             </Link>
           </Typography>
 
