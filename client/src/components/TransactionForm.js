@@ -21,7 +21,7 @@ const InitialForm = {
 };
 
 export default function TransactionForm({ fetchTransctions, editTransaction }) {
-  const User = useSelector((state) => state.auth.user);
+  const { categories } = useSelector((state) => state.auth.user);
   const token = Cookies.get("token");
   const [form, setForm] = useState(InitialForm);
   const types = ["expense", "income", "transfer"];
@@ -81,7 +81,7 @@ export default function TransactionForm({ fetchTransctions, editTransaction }) {
 
   function getCategoryNameById() {
     return (
-      User.categories.find((category) => category._id === form.category_id) ?? ""
+      categories.find((category) => category._id === form.category_id) ?? ""
     );
   }
 
@@ -141,7 +141,7 @@ export default function TransactionForm({ fetchTransctions, editTransaction }) {
               setForm({ ...form, category_id: newValue._id });
             }}
             id="controllable-states-demo"
-            options={User.categories}
+            options={categories}
             sx={{ width: 200, marginRight: 5 }}
             renderInput={(params) => (
               <TextField {...params} size="small" label="Category" />
